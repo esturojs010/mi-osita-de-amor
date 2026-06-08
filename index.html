@@ -1,130 +1,201 @@
-
-=<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Ti ❤️</title>
+<title>Para Grabiela ❤️</title>
 
 <style>
 body{
     margin:0;
     min-height:100vh;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
     font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:white;
     overflow:hidden;
+    color:white;
+}
+
+.nombre{
+    position:absolute;
+    top:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.estuardo{
+    left:20px;
+}
+
+.grabiela{
+    right:20px;
+}
+
+.fecha{
+    position:absolute;
+    bottom:25px;
+    font-size:18px;
+}
+
+.inicio{
+    z-index:2;
+}
+
+.corazon-grande{
+    width:260px;
+    height:260px;
+    background:#ff4f8b;
+    position:relative;
+    transform:rotate(-45deg);
+    margin:auto;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    animation:latido 1.5s infinite;
+}
+
+.corazon-grande::before,
+.corazon-grande::after{
+    content:"";
+    width:260px;
+    height:260px;
+    background:#ff4f8b;
+    border-radius:50%;
+    position:absolute;
+}
+
+.corazon-grande::before{
+    top:-130px;
+    left:0;
+}
+
+.corazon-grande::after{
+    left:130px;
+    top:0;
+}
+
+.boton{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:5;
+    background:white;
+    color:#ff4f8b;
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
 }
 
 .carta{
-    background:rgba(255,255,255,0.18);
-    padding:30px;
+    display:none;
+    z-index:3;
+    background:rgba(255,255,255,0.22);
+    backdrop-filter:blur(10px);
+    padding:28px;
     border-radius:25px;
-    width:90%;
-    max-width:700px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    backdrop-filter:blur(8px);
+    width:88%;
+    max-width:750px;
+    max-height:85vh;
+    overflow-y:auto;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
 }
 
-h1{
-    font-size:40px;
-    margin-bottom:20px;
+.carta h1{
+    font-size:32px;
 }
 
-p{
-    font-size:20px;
+.carta p{
+    font-size:19px;
     line-height:1.6;
 }
 
 .pregunta{
-    font-size:26px;
+    font-size:24px;
     font-weight:bold;
-    color:#fff;
     margin-top:25px;
 }
 
-.corazon{
+.detalle{
     position:absolute;
-    color:white;
-    font-size:25px;
-    animation:subir 6s linear infinite;
+    font-size:24px;
+    opacity:0.7;
+    animation:flotar 8s linear infinite;
 }
 
-@keyframes subir{
-    0%{
-        transform:translateY(100vh) scale(0.5);
-        opacity:1;
-    }
-    100%{
-        transform:translateY(-10vh) scale(1.5);
-        opacity:0;
-    }
+@keyframes latido{
+    0%{transform:rotate(-45deg) scale(1);}
+    50%{transform:rotate(-45deg) scale(1.08);}
+    100%{transform:rotate(-45deg) scale(1);}
+}
+
+@keyframes flotar{
+    0%{transform:translateY(100vh); opacity:0;}
+    20%{opacity:0.8;}
+    100%{transform:translateY(-20vh); opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="carta">
+<div class="nombre estuardo">Estuardo ❤️</div>
+<div class="nombre grabiela">❤️ Grabiela</div>
+
+<div class="inicio" id="inicio">
+    <div class="corazon-grande"></div>
+    <button class="boton" onclick="abrirCarta()">Abrir carta 💌</button>
+</div>
+
+<div class="carta" id="carta">
     <h1>Desde hace tiempo quería decirte esto... ❤️</h1>
 
-    <p>
-        Quizás no soy la mejor persona para expresar todo lo que siento con palabras,
-        pero hay algo que llevo guardando en mi corazón desde hace mucho tiempo.
-    </p>
+    <p>Todo comenzó el <strong>26 de febrero</strong>, una fecha que ahora guardo con mucho cariño en mi corazón.</p>
 
-    <p>
-        Con el paso de los días te has convertido en una persona muy importante para mí.
-        Cada conversación, cada sonrisa y cada momento que hemos compartido ha hecho
-        que te aprecie más de lo que imaginas. 🥺✨
-    </p>
+    <p>Quizás no soy la mejor persona para expresar todo lo que siento con palabras, pero hay algo que llevo guardando en mi corazón desde hace mucho tiempo.</p>
 
-    <p>
-        Me gusta la forma en que eres, la manera en que haces que los días normales
-        se vuelvan especiales y cómo, sin darte cuenta, logras sacar una sonrisa de mí
-        incluso cuando más la necesito.
-    </p>
+    <p>Con el paso de los días te has convertido en una persona muy importante para mí. Cada conversación, cada sonrisa y cada momento que hemos compartido ha hecho que te aprecie más de lo que imaginas. 🥺✨</p>
 
-    <p>
-        No sé qué nos depara el futuro, pero sí sé que eres alguien con quien me gustaría
-        seguir compartiendo momentos, recuerdos, alegrías y sueños. ❤️
-    </p>
+    <p>Me gusta la forma en que eres, la manera en que haces que los días normales se vuelvan especiales y cómo, sin darte cuenta, logras sacar una sonrisa de mí incluso cuando más la necesito.</p>
 
-    <p>
-        Por eso hoy quiero abrir mi corazón y preguntarte algo muy especial...
-    </p>
+    <p>No sé qué nos depara el futuro, pero sí sé que eres alguien con quien me gustaría seguir compartiendo momentos, recuerdos, alegrías y sueños. ❤️</p>
+
+    <p>Por eso hoy quiero abrir mi corazón y preguntarte algo muy especial...</p>
 
     <p class="pregunta">¿Me darías la oportunidad de hacerte feliz? 🥺❤️</p>
 
     <p class="pregunta">¿Te gustaría compartir tu vida conmigo? ❤️🌹</p>
 
-    <p>
-        Pase lo que pase, gracias por llegar a mi vida, por todos los momentos que hemos
-        compartido y por ser una persona tan especial para mí.
-    </p>
-
-    <h2>Con mucho cariño ❤️</h2>
+    <p>Pase lo que pase, gracias por llegar a mi vida, por todos los momentos que hemos compartido y por ser una persona tan especial para mí.</p>
 </div>
 
-<script>
-function crearCorazon(){
-    const corazon = document.createElement("div");
-    corazon.classList.add("corazon");
-    corazon.innerHTML = "❤️";
-    corazon.style.left = Math.random() * 100 + "vw";
-    corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(corazon);
+<div class="fecha">26 de febrero ❤️</div>
 
-    setTimeout(() => {
-        corazon.remove();
-    }, 6000);
+<script>
+function abrirCarta(){
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("carta").style.display = "block";
 }
 
-setInterval(crearCorazon, 500);
+const detalles = ["❤️","✨","💖","🌹","💕"];
+
+setInterval(() => {
+    const d = document.createElement("div");
+    d.className = "detalle";
+    d.innerHTML = detalles[Math.floor(Math.random() * detalles.length)];
+    d.style.left = Math.random() * 100 + "vw";
+    d.style.animationDuration = (Math.random() * 4 + 5) + "s";
+    document.body.appendChild(d);
+
+    setTimeout(() => {
+        d.remove();
+    }, 9000);
+}, 700);
 </script>
 
 </body>
