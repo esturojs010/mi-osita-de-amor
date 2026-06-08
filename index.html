@@ -19,74 +19,75 @@ body{
     color:white;
 }
 
-.nombre{
-    position:absolute;
-    top:20px;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.estuardo{
-    left:20px;
-}
-
-.grabiela{
-    right:20px;
-}
-
-.fecha{
-    position:absolute;
-    bottom:25px;
-    font-size:18px;
-}
-
 .inicio{
     z-index:2;
 }
 
 .corazon-grande{
-    width:260px;
-    height:260px;
-    background:#ff4f8b;
+    width:280px;
+    height:280px;
+    background:#e75480;
     position:relative;
     transform:rotate(-45deg);
     margin:auto;
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    box-shadow:0 18px 45px rgba(0,0,0,0.25);
     animation:latido 1.5s infinite;
 }
 
 .corazon-grande::before,
 .corazon-grande::after{
     content:"";
-    width:260px;
-    height:260px;
-    background:#ff4f8b;
+    width:280px;
+    height:280px;
+    background:#e75480;
     border-radius:50%;
     position:absolute;
 }
 
 .corazon-grande::before{
-    top:-130px;
+    top:-140px;
     left:0;
 }
 
 .corazon-grande::after{
-    left:130px;
+    left:140px;
     top:0;
 }
 
-.boton{
+.contenido-corazon{
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
     z-index:5;
+    color:white;
+    font-weight:bold;
+    text-shadow:0 2px 8px rgba(0,0,0,0.25);
+}
+
+.contenido-corazon .icono{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.contenido-corazon h1{
+    margin:5px 0;
+    font-size:34px;
+}
+
+.contenido-corazon p{
+    margin:8px 0;
+    font-size:18px;
+}
+
+.boton{
+    margin-top:15px;
     background:white;
-    color:#ff4f8b;
+    color:#e75480;
     border:none;
-    padding:15px 25px;
+    padding:13px 22px;
     border-radius:30px;
-    font-size:20px;
+    font-size:18px;
     font-weight:bold;
     cursor:pointer;
     box-shadow:0 8px 20px rgba(0,0,0,0.25);
@@ -95,36 +96,58 @@ body{
 .carta{
     display:none;
     z-index:3;
-    background:rgba(255,255,255,0.22);
-    backdrop-filter:blur(10px);
-    padding:28px;
-    border-radius:25px;
+    background:#fff8f0;
+    color:#5a2a2a;
+    padding:35px;
+    border-radius:18px;
     width:88%;
-    max-width:750px;
+    max-width:760px;
     max-height:85vh;
     overflow-y:auto;
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    box-shadow:0 18px 45px rgba(0,0,0,0.3);
+    border:2px solid #f3c6c6;
+    text-align:left;
 }
 
 .carta h1{
+    text-align:center;
+    color:#d94f7c;
     font-size:32px;
+    margin-bottom:10px;
+}
+
+.fecha-carta{
+    text-align:center;
+    font-size:16px;
+    color:#9b5c5c;
+    margin-bottom:25px;
 }
 
 .carta p{
     font-size:19px;
-    line-height:1.6;
+    line-height:1.8;
+    margin-bottom:22px;
 }
 
 .pregunta{
-    font-size:24px;
+    text-align:center;
+    font-size:23px;
     font-weight:bold;
-    margin-top:25px;
+    color:#d94f7c;
+    margin-top:28px;
+}
+
+.firma{
+    text-align:right;
+    margin-top:30px;
+    font-weight:bold;
+    color:#d94f7c;
 }
 
 .detalle{
     position:absolute;
     font-size:24px;
-    opacity:0.7;
+    opacity:0.65;
     animation:flotar 8s linear infinite;
 }
 
@@ -139,21 +162,71 @@ body{
     20%{opacity:0.8;}
     100%{transform:translateY(-20vh); opacity:0;}
 }
+
+@media(max-width:600px){
+    .corazon-grande{
+        width:220px;
+        height:220px;
+    }
+
+    .corazon-grande::before,
+    .corazon-grande::after{
+        width:220px;
+        height:220px;
+    }
+
+    .corazon-grande::before{
+        top:-110px;
+    }
+
+    .corazon-grande::after{
+        left:110px;
+    }
+
+    .contenido-corazon h1{
+        font-size:28px;
+    }
+
+    .contenido-corazon p{
+        font-size:15px;
+    }
+
+    .boton{
+        font-size:15px;
+        padding:11px 18px;
+    }
+
+    .carta{
+        padding:24px;
+    }
+
+    .carta p{
+        font-size:17px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="nombre estuardo">Estuardo ❤️</div>
-<div class="nombre grabiela">❤️ Grabiela</div>
-
 <div class="inicio" id="inicio">
     <div class="corazon-grande"></div>
-    <button class="boton" onclick="abrirCarta()">Abrir carta 💌</button>
+
+    <div class="contenido-corazon">
+        <div class="icono">❤️</div>
+        <h1>E + G</h1>
+        <p>26 de febrero de 2026</p>
+        <p>Todo comenzó aquí ✨</p>
+        <button class="boton" onclick="abrirCarta()">Abrir carta 💌</button>
+    </div>
 </div>
 
 <div class="carta" id="carta">
-    <h1>Desde hace tiempo quería decirte esto... ❤️</h1>
+    <h1>Mi querida Grabiela ❤️</h1>
+
+    <div class="fecha-carta">8 de junio de 2026</div>
+
+    <p>Desde hace tiempo quería decirte esto...</p>
 
     <p>Todo comenzó el <strong>26 de febrero</strong>, una fecha que ahora guardo con mucho cariño en mi corazón.</p>
 
@@ -167,14 +240,14 @@ body{
 
     <p>Por eso hoy quiero abrir mi corazón y preguntarte algo muy especial...</p>
 
-    <p class="pregunta">¿Me darías la oportunidad de hacerte feliz? 🥺❤️</p>
+    <p class="pregunta">¿Te gustaría escribir una bonita historia conmigo? ❤️</p>
 
-    <p class="pregunta">¿Te gustaría compartir tu vida conmigo? ❤️🌹</p>
+    <p class="pregunta">¿Te gustaría que intentáramos algo bonito juntos? ❤️</p>
 
     <p>Pase lo que pase, gracias por llegar a mi vida, por todos los momentos que hemos compartido y por ser una persona tan especial para mí.</p>
-</div>
 
-<div class="fecha">26 de febrero ❤️</div>
+    <p class="firma">Con cariño,<br>Estuardo ❤️</p>
+</div>
 
 <script>
 function abrirCarta(){
